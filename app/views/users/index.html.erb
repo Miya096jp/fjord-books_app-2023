@@ -1,9 +1,15 @@
-<h1>Users#index</h1>
+<h1>Users</h1>
 
-<ul>
+<div id="books" class="index-items">
   <% @user.each do |user| %>
-    <li>
-      <%= link_to user.email, user_path(user) %>
-    </li>
+    <div class="index-item">
+      <p>
+        <%= link_to user.email, user_path(user) %>
+      </p>
+    </div>
   <% end %>
-</ul>
+</div>
+
+<nav class="page-nav">
+  <%= link_to 'Back to Books', books_path %>
+</nav>
