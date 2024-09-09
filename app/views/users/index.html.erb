@@ -1,7 +1,7 @@
 <h1><%= t('models.user.header.users_index') %></h1>
 
 <div id="books" class="index-items">
-  <% @user.each do |user| %>
+  <% @users.each do |user| %>
     <div class="index-item">
       <p>
         <%= link_to user.email, user_path(user) %>
@@ -9,6 +9,8 @@
     </div>
   <% end %>
 </div>
+
+<%= paginate @users %>
 
 <nav class="page-nav">
   <%= link_to t('models.book.link.back_to_books'), books_path %>
