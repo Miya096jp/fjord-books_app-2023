@@ -1,15 +1,15 @@
-<h1>Profile</h1>
+<h1><%= t('models.user.header.users_profile') %></h1>
 
 <div class="show-item">
   <%= render @user %>
 </div>
 
 <nav class="page-nav">
-  <%= link_to 'Back to Users', users_path %>
-  <%= link_to 'Back to Books', books_path %>
+  <%= link_to t('models.user.link.back_to_users'), users_path %>
+  <%= link_to t('models.book.link.back_to_books'), books_path %>
 
   <% if current_user == @user %>
-    <%= link_to 'Edit', edit_user_registration_path %>
+    <%= link_to t('models.user.link.edit_profile'), edit_user_registration_path %>
   <% end %>
 </nav>
 

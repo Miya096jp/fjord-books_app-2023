@@ -1,4 +1,4 @@
-<h1>Users</h1>
+<h1><%= t('models.user.header.users_index') %></h1>
 
 <div id="books" class="index-items">
   <% @user.each do |user| %>
@@ -11,5 +11,5 @@
 </div>
 
 <nav class="page-nav">
-  <%= link_to 'Back to Books', books_path %>
+  <%= link_to t('models.book.link.back_to_books'), books_path %>
 </nav>

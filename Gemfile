@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+#frozen_string_literal: true
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -82,3 +82,5 @@ end
 gem 'carrierwave'
 
 gem "devise", "~> 4.9"
+gem 'i18n_generators'
+gem 'devise-i18n'
