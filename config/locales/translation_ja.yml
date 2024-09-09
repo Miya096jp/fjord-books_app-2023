@@ -44,6 +44,11 @@ ja:
         users_index: ユーザー一覧
         users_profile: プロフィール
         edit_profile: プロフィールの更新
+        change_password?: パスワードをお忘れですか？
+        new_password: パスワードの変更
+      label:
+        new_password: 新しいパスワード
+        confirm_password: もう1度入力
       link:
         login: ログイン
         sign_up: ユーザー登録
@@ -60,8 +65,27 @@ ja:
         sign_up: 登録
         update: 更新
         cancel: 退会
+        send_email: パスワード変更メールを送る
+        change: 変更
       note:
         characters_minimum: "%{count}文字以上"
         no_change_password: 変更しない場合は空欄でOK
         cancel: 退会
         caution: 退会しますか？
+  views:
+    pagination:
+      first: 最初のページ
+      last: 最後のページ
+      previous: 前へ
+      next: 次へ
+      trancate: ...
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "%{entry_name}が見つかりません"
+          one: "<b>1</b>件の%{entry_name}を表示中"
+          other: "全<b>%{count}</b>件の%{entry_name}を表示中"
+      more_pages:
+        display_entries: "%{entry_name} <b>%{first}~%{last}</b>件目を表示中(全<b>%{total}</b>件中)"
+
