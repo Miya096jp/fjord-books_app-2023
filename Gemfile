@@ -1,4 +1,4 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -66,12 +66,12 @@ group :development do
   # gem "spring"
 
   gem 'erb_lint', require: false
+  gem 'letter_opener_web', '~> 3.0'
   # 以下のPRがリリースされたら最新のrubocopを使うようにする
   # https://github.com/fjordllc/rubocop-fjord/pull/16
   gem 'rubocop', '~> 1.45.1', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
-  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :test do
@@ -81,8 +81,7 @@ group :test do
 end
 
 gem 'carrierwave'
-
-gem "devise", "~> 4.9"
-gem 'i18n_generators'
+gem 'devise', '~> 4.9'
 gem 'devise-i18n'
+gem 'i18n_generators'
 gem 'kaminari'

@@ -32,7 +32,7 @@ ja:
         edit_this_book: この本を編集
         back_to_books: 本の一覧に戻る
         destroy_this_book: この本を削除
-      messages:
+      message:
         create_success: "%{title}を追加しました"
         update_success: "%{title}を更新しました"
         destroy_success: "%{title}を削除しました"
