@@ -15,13 +15,13 @@ ja:
       last: "最後のページ"
       previous: "前へ"
       next: "次へ"
-      truncate: "..."
+      truncate: "&hellips;"
   helpers:
     page_entries_info:
       one_page:
         display_entries:
           zero: "%{entry_name}が見つかりません"
-          one: "<b>1</b>件の%{entry_name}を表示中"
-          other: "全<b>%{count}</b>件の%{entry_name}を表示中"
+          one: "1件の%{entry_name}を表示中"
+          other: "全%{count}件の%{entry_name}を表示中"
       more_pages:
-        display_entries: "%{entry_name} <b>%{first}~%{last}</b>件目を表示中(全<b>%{total}</b>件中)"
+        display_entries: "%{entry_name} %{first}~%{last}件目を表示中(全%{total}件中)"
