@@ -2,19 +2,7 @@
 
 <h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
 
-<% if @books.empty? %>
-  <%= t('helpers.page_entries_info.one_page.display_entries.zero', entry_name: t('activerecord.models.book')) %>
-<% elsif @books.size == 1 %>
-  <%= t('helpers.page_entries_info.one_page.display_entries.one', entry_name: t('activerecord.models.book')) %>
-<% elsif @books.size == @books.total_count %>
-  <%= t('helpers.page_entries_info.one_page.display_entries.other', count: @books.size, entry_name: t('activerecord.models.book')) %>
-<% else %>
-  <%= t('helpers.page_entries_info.more_pages.display_entries',
-        entry_name: '本',
-        first: @books.offset_value + 1,
-        last: [@books.offset_value + @books.limit_value, @books.total_count].min,
-        total: @books.total_count) %>
-<% end %>
+<%= page_entries_info @books, entry_name: t('activerecord.models.book') %>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>
