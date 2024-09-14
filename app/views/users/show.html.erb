@@ -1,8 +1,15 @@
-<h1>Profile</h1>
-<p>
-  <strong>Email:</strong> <%= @user.email %>
-</p>
+<h1><%= t('users.show.header') %></h1>
+
+<div class="show-item">
+  <p>
+  <strong><%= t('users.show.email') %></strong> <%= @user.email %>
+  </p>
   <% if @user.image.attached? %>
-    <p>Icon:</p>
+    <p><%= t('users.show.image') %></p>
     <%= image_tag @user.image.variant(resize_to_limit: [100,100]) %>
   <% end %>
+
+  <% if current_user == @user %>
+    <%= link_to t('users.show.edit'), edit_user_registration_path %>
+  <% end %>
+</div>

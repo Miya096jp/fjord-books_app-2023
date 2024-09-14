@@ -1,0 +1,9 @@
+ja:
+  users:
+    new:
+      header: ユーザー一覧
+    show:
+      header: プロフィール
+      email: Eメール
+      image: プロフィール画像
+      edit: プロフィール編集

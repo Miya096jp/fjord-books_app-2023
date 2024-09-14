@@ -1,13 +1,12 @@
-<h1>Users</h1>
-<ul>
+<h1><%= t('users.new.header') %></h1>
+<div id="users" class="index-items">
   <% @users.each do |user| %>
-    <li>
+    <div class="index_item">
       <%= link_to user.email, user_path(user) %>
-    </li>
-
-    <% if user.image.attached? %>
-      <p>Icon:</p>
-      <%= image_tag user.image.variant(resize_to_limit: [100, 100]) %>
-    <% end %>
+      <% if user.image.attached? %>
+        <p><%= t('users.new.header') %></p>
+        <%= image_tag user.image.variant(resize_to_limit: [100, 100]) %>
+      <% end %>
+    </div>
   <% end %>
 </ul>
