@@ -1,4 +1,8 @@
-<h1>Users#show</h1>
+<h1>Profile</h1>
 <p>
   <strong>Email:</strong> <%= @user.email %>
 </p>
+  <% if @user.image.attached? %>
+    <p>Icon:</p>
+    <%= image_tag @user.image.variant(resize_to_limit: [100,100]) %>
+  <% end %>
