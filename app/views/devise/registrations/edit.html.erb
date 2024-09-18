@@ -1,4 +1,4 @@
-<h2><%= t('models.user.header.edit_profile') %></h2>
+<h2><%= t('.header') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -13,11 +13,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(<%= t('models.user.note.no_change_password') %>)</i><br />
+    <%= f.label :password %> <i>(<%= t('.notes.no_change_password') %>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= t('models.user.note.characters_minimum', count: @minimum_password_length) %></em>
+      <em><%= t('devise.characters_minimum', count: @minimum_password_length) %></em>
     <% end %>
   </div>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('models.user.note.password_confirmation') %>)</i><br />
+    <%= f.label :current_password %> <i>(<%= t('.notes.current_password') %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
@@ -46,12 +46,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('models.user.button.update') %>
+    <%= f.submit t('.buttons.update') %>
   </div>
 <% end %>
 
-<h3><%= t('models.user.note.cancel') %></h3>
+<h3><%= t('.label.cancel') %></h3>
 
-<div><%= t('models.user.note.caution') %> <%= button_to t('models.user.button.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div><%= t('.notes.confirm_cancel') %> <%= button_to t('.buttons.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to t('models.user.link.back_to_users'), :back %>
+<%= link_to t('.link'), :back %>

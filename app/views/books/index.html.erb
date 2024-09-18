@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('models.book.header.books_index') %></h1>
+<h1><%= t('.header') %></h1>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>
@@ -16,5 +16,5 @@
 <%= paginate @books %>
 
 <nav class="page-nav">
-  <%= link_to t('models.book.link.new_book'), new_book_path %>
+  <%= link_to t('.link'), new_book_path %>
 </nav>

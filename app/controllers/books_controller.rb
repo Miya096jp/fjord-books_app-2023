@@ -2,10 +2,8 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
-  before_action :authenticate_user!
 
   # GET /books or /books.json
-  def index
     # @books = Book.all
     @books = Book.order(created_at: :asc).page(params[:page]).per(3)
   end
@@ -27,7 +25,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_url(@book), notice: t('models.book.message.create_success', title: @book.title) }
+        format.html { redirect_to book_url(@book), notice: t('.success.create', title: @book.title) }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +38,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: t('models.book.message.update_success', title: @book.title) }
+        format.html { redirect_to book_url(@book), notice: t('.success.update', title: @book.title) }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +52,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: t('models.book.message.destroy_success', title: @book.title) }
+      format.html { redirect_to books_url, notice: t('.success.destroy', title: @book.title) }
       format.json { head :no_content }
     end
   end

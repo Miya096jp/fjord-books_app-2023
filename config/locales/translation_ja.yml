@@ -20,58 +20,78 @@ ja:
         reset_password_sent_at: に送信されたパスワードのリセット  #g
         reset_password_token: パスワードトークンをリセットする  #g
 
-  models:
-    book:
-      header:
-        books_index: 本の一覧
-        new_book: 新しい本を追加
-        editing_book: 本の編集
-      link:
-        new_book: 新しい本を追加
-        show_this_book: この本を表示
+  books:
+    index:
+      header: 本の一覧
+      link: 本を追加
+    new:
+      header: 本を追加
+      link: 本の一覧へ戻る
+    show:
+      links:
         edit_this_book: この本を編集
-        back_to_books: 本の一覧に戻る
-        destroy_this_book: この本を削除
-      message:
-        create_success: "%{title}を追加しました"
-        update_success: "%{title}を更新しました"
-        destroy_success: "%{title}を削除しました"
+        back_to_books: 本の一覧へ戻る
+      button: この本を削除
+    success: #booksコントローラ
+      create: "%{title}を追加しました"
+      update: "%{title}を更新しました"
+      destroy: "%{title}を削除しました"
 
-    user:
-      header:
+  devise:
+    sessions:
+      new:
+        header: ログイン
+        button: ログイン
+    shared:
+      links:
+        sign_up: ユーザー登録 
+        forgot_your_password?: パスワードをお忘れですか？
         login: ログイン
-        sign_up: ユーザー登録
-        users_index: ユーザー一覧
-        users_profile: プロフィール
-        edit_profile: プロフィールの更新
-        change_password?: パスワードをお忘れですか？
-        new_password: パスワードの変更
-      label:
-        new_password: 新しいパスワード
-        confirm_password: もう1度入力
-      link:
-        login: ログイン
-        sign_up: ユーザー登録
-        forgot_your_password?: パスワードを忘れたら
-        did_not_receive_confirmation_instructions?: 確認メールの再送信
-        did_not_receive_unlock_instructions?: アカウントロック解除メールの再送信
-        back_to_users: ユーザー一覧に戻る
-        edit_profile: プロフィールを編集
-        my_profile: マイプロフィール
-        users: ユーザー一覧
-        logout: ログアウト
-      button:
-        login: ログイン
-        sign_up: 登録
-        update: 更新
-        cancel: 退会
-        send_email: パスワード変更メールを送る
-        change: 変更
-      note:
-        characters_minimum: "%{count}文字以上"
-        no_change_password: 変更しない場合は空欄でOK
-        cancel: 退会
-        caution: 退会しますか？
+    registrations:
+      new:
+        header: ユーザー登録
+        button: 登録
+      edit:
+        header: プロフィールの編集
+        link: ユーザー一覧へ戻る
+        notes:
+          no_change_password: 変更しない場合は空欄
+          current_password: 確認のため現在のパスワードを入力してください
+          confirm_cancel: 本当に退会しますか？
+        buttons:
+          update: 更新
+          cancel: 退会
+        label:
+          cancel: 退会
+    passwords:
+      new:
+        header: パスワードをお忘れですか？
+        button: パスワード変更メールを送る
+      edit:
+        header: パスワードの変更
+        labels:
+          new_password: 新しいパスワード
+          confirmation: もう1度入力
+        button: 変更
+    characters_minimum: "%{count}文字以上"
+
+  users:
+    index:
+      header: ユーザー一覧
+      link: 本の一覧へ戻る
+    show:
+      header: プロフィール
+      links:
+        back_to_users: ユーザー一覧へ戻る
+        back_to_books: 本の一覧へ戻る
+        edit_profile: プロフィールの編集
+
+  layouts:
+    application:
+      my_profile: マイページ
+      users: ユーザー一覧
+      logout: ログアウト
+
   views:
     pagination:
       first: 最初のページ
