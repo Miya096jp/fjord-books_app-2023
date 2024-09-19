@@ -34,6 +34,12 @@ ja:
         edit_this_book: この本を編集
         back_to_books: 本の一覧へ戻る
       button: この本を削除
+    edit:
+      header: 本の編集
+      links:
+        show_this_book: この本の詳細へ戻る
+        back_to_books: 本の一覧へ戻る
+
     success: #booksコントローラ
       create: "%{title}を追加しました"
       update: "%{title}を更新しました"

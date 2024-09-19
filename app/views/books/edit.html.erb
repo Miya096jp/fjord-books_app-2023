@@ -1,10 +1,10 @@
-<h1><%= t('models.book.header.editing_book') %></h1>
+<h1><%= t('.header') %></h1>
 
 <%= render "form", book: @book %>
 
 <br>
 
 <nav class="page-nav">
-  <%= link_to t('models.book.link.show_this_book'), @book %> |
-  <%= link_to t('models.book.link.back_to_books'), books_path %>
+  <%= link_to t('.links.show_this_book'), @book %> |
+  <%= link_to t('.links.back_to_books'), books_path %>
 </nav>
