@@ -1,0 +1,17 @@
+<h1><%= t('.header') %></h1>
+
+<div id="users" class="index-items">
+  <% @users.each do |user| %>
+    <div class="index-item">
+      <p>
+        <%= link_to user.email, user_path(user) %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @users %>
+
+<nav class="page-nav">
+  <%= link_to t('.link'), books_path %>
+</nav>

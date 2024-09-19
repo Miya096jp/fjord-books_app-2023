@@ -1,3 +1,123 @@
+ja:
+  activerecord:
+    models:
+      book: 本
+      user: ユーザー
+
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 写真
+        title: タイトル
+      user:
+        address: 住所
+        email: 電子メール
+        encrypted_password: 暗号化されたパスワード
+        introduction: 自己紹介
+        post_code: 郵便番号
+        remember_created_at: で作成されたことを覚えておいてください
+        reset_password_sent_at: に送信されたパスワードのリセット
+        reset_password_token: パスワードトークンをリセットする
+
+  books:
+    index:
+      header: 本の一覧
+      links:
+        show_book: 本の詳細
+        add_book: 本を追加
+    new:
+      header: 本を追加
+      link: 本の一覧へ戻る
+    show:
+      links:
+        edit_this_book: この本を編集
+        back_to_books: 本の一覧へ戻る
+      button: この本を削除
+    edit:
+      header: 本の編集
+      links:
+        show_this_book: この本の詳細へ戻る
+        back_to_books: 本の一覧へ戻る
+
+    success: #booksコントローラ
+      create: "%{title}を追加しました"
+      update: "%{title}を更新しました"
+      destroy: "%{title}を削除しました"
+
+  devise:
+    sessions:
+      new:
+        header: ログイン
+        button: ログイン
+    shared:
+      links:
+        sign_up: ユーザー登録 
+        forgot_your_password?: パスワードをお忘れですか？
+        login: ログイン
+    registrations:
+      new:
+        header: ユーザー登録
+        button: 登録
+      edit:
+        header: プロフィールの編集
+        link: ユーザー一覧へ戻る
+        notes:
+          no_change_password: 変更しない場合は空欄
+          current_password: 確認のため現在のパスワードを入力してください
+          confirm_cancel: 本当に退会しますか？
+        buttons:
+          update: 更新
+          cancel: 退会
+        label:
+          cancel: 退会
+    passwords:
+      new:
+        header: パスワードをお忘れですか？
+        button: パスワード変更メールを送る
+      edit:
+        header: パスワードの変更
+        labels:
+          new_password: 新しいパスワード
+          confirmation: もう1度入力
+        button: 変更
+    characters_minimum: "%{count}文字以上"
+
+  users:
+    index:
+      header: ユーザー一覧
+      link: 本の一覧へ戻る
+    show:
+      header: プロフィール
+      links:
+        back_to_users: ユーザー一覧へ戻る
+        back_to_books: 本の一覧へ戻る
+        edit_profile: プロフィールの編集
+
+  layouts:
+    application:
+      my_profile: マイページ
+      users: ユーザー一覧
+      logout: ログアウト
+
+  views:
+    pagination:
+      first: 最初のページ
+      last: 最後のページ
+      previous: 前へ
+      next: 次へ
+      trancate: ...
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "%{entry_name}が見つかりません"
+          one: "<b>1</b>件の%{entry_name}を表示中"
+          other: "全<b>%{count}</b>件の%{entry_name}を表示中"
+      more_pages:
+        display_entries: "%{entry_name} <b>%{first}~%{last}</b>件目を表示中(全<b>%{total}</b>件中)"
+
+=======
 ---
 ja:
   activerecord:

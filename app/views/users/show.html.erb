@@ -1,0 +1,14 @@
+<h1><%= t('.header') %></h1>
+
+<div class="show-item">
+  <%= render @user %>
+</div>
+
+<nav class="page-nav">
+  <%= link_to t('.links.back_to_users'), users_path %>
+  <%= link_to t('.links.back_to_books'), books_path %>
+
+  <% if current_user == @user %>
+    <%= link_to t('.links.edit_profile'), edit_user_registration_path %>
+  <% end %>
+</nav>
