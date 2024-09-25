@@ -18,6 +18,13 @@
   <%= f.text_area :self_introduction %>
 </div>
 
+<% if current_user.image.attached? %>
+  <div class="field">
+    <p>Image:</p>
+    <%= image_tag current_user.image %>
+  </div>
+<% end %>
+
 <div class="field">
   <%= f.label :image %><br />
   <%= f.file_field :image %>
