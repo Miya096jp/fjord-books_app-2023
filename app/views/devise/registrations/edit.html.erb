@@ -16,7 +16,7 @@
 
   <% if current_user.image.attached? %>
     <div class="field">
-      <p>Image:</p>
+      <strong><%= t('.image') %></strong>
       <%= image_tag current_user.image.variant(resize_to_limit: [100, 100]) %>
     </div>
   <% end %>
