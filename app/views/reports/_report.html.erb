@@ -1,0 +1,19 @@
+<p>
+  <strong>Title:</strong>
+  <%= report.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= report.user.name.present? ? report.user.name : report.user.email %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= report.body %>
+</p>
+
+<p>
+  <strong>Created_at:</strong>
+  <%= report.created_at %>
+</p>
