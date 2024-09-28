@@ -36,6 +36,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
+    @report = set_report
     @report.destroy!
     redirect_to reports_path, status: :see_other, notice: "Report was successfully destoroyed."
   end
