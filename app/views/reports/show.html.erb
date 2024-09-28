@@ -10,3 +10,21 @@
     <%= button_to "Destroy this report", @report, method: :delete %>
   <% end %>
 </div>
+
+<h2>Comments</h2>
+<% if @report.comments.present? %>
+  <% @report.comments.each do |comment| %>
+    <p><%= comment.title %></p>
+    <p><%= comment.body %></p>
+    <p>Posted by <%= comment.user.name || comment.user.email %></p>
+    <% if comment.user == current_user %>
+      <%= link_to 'Edit', edit_report_comment_path(@report, comment) %>
+      <%= button_to 'Delete', [@report, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>コメントはまだありません</p>
+<% end %>
+
+<h3>Add a Comment</h3>
+<%= render 'comments/form', commentable: @report, comment: Comment.new %>

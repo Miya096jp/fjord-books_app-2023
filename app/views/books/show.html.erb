@@ -10,3 +10,22 @@
 
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
+
+
+<h2>Comments</h2>
+<% if @book.comments.present? %>
+  <% @book.comments.each do |comment| %>
+    <p><%= comment.title %></p>
+    <p><%= comment.body %></p>
+    <p>Posted by <%= comment.user.name || comment.user.email %></p>
+    <% if comment.user == current_user %>
+      <%= link_to 'Edit', edit_book_comment_path(@book, comment) %> |
+      <%= button_to 'Delete', [@book, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>コメントはまだありません。</p>
+<% end %>
+
+<h3>Add a Comment</h3>
+<%= render 'comments/form', commentable: @book, comment: Comment.new %>
