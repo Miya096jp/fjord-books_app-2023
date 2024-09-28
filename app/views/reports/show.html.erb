@@ -1,30 +1,31 @@
-<h1>Report</h1>
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 
 <%= render @report %>
 
 <div>
-  <%= link_to "Back to reports", reports_path %>
-
+  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
   <% if @report.user == current_user %>
-    <%= link_to "Edit this report", edit_report_path(@report) %>
-    <%= button_to "Destroy this report", @report, method: :delete %>
+    <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %>
+    <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </div>
 
-<h2>Comments</h2>
+<h2><%= t('views.common.title_index', name: Comment.model_name.human) %></h2>
 <% if @report.comments.present? %>
   <% @report.comments.each do |comment| %>
+    <strong><%= Comment.human_attribute_name(:title) %>:</strong>
     <p><%= comment.title %></p>
+    <strong><%= Comment.human_attribute_name(:body) %>:</strong>
     <p><%= comment.body %></p>
     <p>Posted by <%= comment.user.name || comment.user.email %></p>
     <% if comment.user == current_user %>
-      <%= link_to 'Edit', edit_report_comment_path(@report, comment) %>
-      <%= button_to 'Delete', [@report, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_comment_path(@report, comment) %>
+      <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), [@report, comment], method: :delete %>
     <% end %>
   <% end %>
 <% else %>
   <p>コメントはまだありません</p>
 <% end %>
 
-<h3>Add a Comment</h3>
+<h3><%= t('views.common.post', name: Comment.model_name.human) %></h3>
 <%= render 'comments/form', commentable: @report, comment: Comment.new %>

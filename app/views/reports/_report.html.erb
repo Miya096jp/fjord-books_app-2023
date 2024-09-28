@@ -1,19 +1,19 @@
 <p>
-  <strong>Title:</strong>
+<strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= report.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong><%= Report.human_attribute_name(:author) %>:</strong>
   <%= report.user.name.present? ? report.user.name : report.user.email %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong><%= Report.human_attribute_name(:body) %>:</strong>
   <%= report.body %>
 </p>
 
 <p>
-  <strong>Created_at:</strong>
+  <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
   <%= report.created_at %>
 </p>

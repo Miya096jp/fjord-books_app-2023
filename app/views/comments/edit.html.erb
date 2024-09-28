@@ -1,0 +1,15 @@
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human) %></h1>
+
+<%= render 'form', commentable: @commentable, comment: @comment %>
+
+<br>
+
+<div>
+  <% if @commentable.is_a?(Book) %>
+    <%= link_to t('views.common.back_to_previous_page'), book_path(@commentable) %> | 
+    <%= link_to t('views.common.back', name: Book.model_name.human.downcase), books_path %>
+  <% elsif @commentable.is_a?(Report) %>
+    <%= link_to t('views.common.back_to_previous_page'), report_path(@commentable) %> | 
+    <%= link_to t('views.common.back', name: Report.model_name.human.downcase), reports_path %>
+  <% end %>
+</div>
