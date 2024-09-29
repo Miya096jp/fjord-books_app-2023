@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   def index
     @reports = Report.all
@@ -19,7 +21,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.new(report_params)
 
     if @report.save
-      redirect_to @report, notice: "Report was successfully created."
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +31,7 @@ class ReportsController < ApplicationController
     @report = set_report
 
     if @report.update(report_params)
-      redirect_to @report, notice: "Report was successfully updated."
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +40,7 @@ class ReportsController < ApplicationController
   def destroy
     @report = set_report
     @report.destroy!
-    redirect_to reports_path, status: :see_other, notice: "Report was successfully destoroyed."
+    redirect_to reports_path, status: :see_other, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
