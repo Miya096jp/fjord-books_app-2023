@@ -22,10 +22,10 @@ module ApplicationHelper
   def text_url_to_hyperlink(content)
     require 'uri'
     sanitized_content = sanitize(content)
-    URI.extract(sanitized_content, ['http', 'https']).uniq.each do |url|
+    URI.extract(sanitized_content, %w[http https]).uniq.each do |url|
       hyperlink = "<a href='#{url}' target='_blank'>#{url}</a>"
       sanitized_content.gsub!(url, hyperlink)
     end
-    sanitized_content.html_safe
+    sanitized_content
   end
 end
