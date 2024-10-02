@@ -22,6 +22,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.new(report_params)
 
     if @report.save
+      create_mentions(@report)
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
@@ -30,6 +31,7 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
+      create_mentions(@report)
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
@@ -43,6 +45,17 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def create_mentions(report)
+    report.mention_relationships.destroy_all
+    report_url_pattern = /http:\/\/localhost:3000\/reports\/(\d+)/
+    mentions = report.content.scan(report_url_pattern).flatten
+
+    mentions.each do |mention_id|
+      Mention.create(mention_id: report.id, mentioned_id: mention_id)
+    end
+  end
+
 
   def set_report
     @report = current_user.reports.find(params[:id])
