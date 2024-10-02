@@ -1,2 +1,3 @@
 class Mention < ApplicationRecord
+  
 end

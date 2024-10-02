@@ -4,6 +4,15 @@ class Report < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
 
+  has_many :mention_relationships, class_name: "Mention",
+                                   foreign_key: "mention_id",
+                                   dependent: :destroy
+  has_many :mentioning_reports, through: :mention_relationships, source: :mentioned
+  has_many :mentioned_in_relationships, class_name: "Mention",
+                                     foreign_key: "mentioned_id",
+                                     dependent: :destroy
+  has_many :mentioned_reports, through: :mentioned_in_relationships, source: :mention
+
   validates :title, presence: true
   validates :content, presence: true
 
