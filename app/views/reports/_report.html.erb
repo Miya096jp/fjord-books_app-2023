@@ -4,9 +4,15 @@
     <%= report.title %>
   </p>
 
+  <%# <p> %>
+  <%#   <strong><%= Report.human_attribute_name(:content) %1>:</strong> %>
+  <%#   <%= format_content report.content %1> %>
+  <%# </p> %>
+
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%= format_content report.content %>
+    <%= simple_format(text_url_to_hyperlink(report.content), {}, sanitize: false) %>
+    <%# <%= format_content report.content %1> %>
   </p>
 
   <p>
