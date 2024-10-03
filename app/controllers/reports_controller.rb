@@ -48,14 +48,13 @@ class ReportsController < ApplicationController
 
   def create_mentions(report)
     report.mention_relationships.destroy_all
-    report_url_pattern = /http:\/\/localhost:3000\/reports\/(\d+)/
+    report_url_pattern = %r{http://localhost:3000/reports/(\d+)}
     mentions = report.content.scan(report_url_pattern).flatten
 
     mentions.each do |mention_id|
       Mention.create(mention_id: report.id, mentioned_id: mention_id)
     end
   end
-
 
   def set_report
     @report = current_user.reports.find(params[:id])
