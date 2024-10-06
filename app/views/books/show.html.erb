@@ -11,7 +11,7 @@
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
 
-<div id="comment" class="index-item">
+<div class="index-item">
   <h2><%= t('views.common.title_index', name: Comment.model_name.human) %></h2>
   <% if @book.comments.present? %>
     <% @book.comments.each do |comment| %>
