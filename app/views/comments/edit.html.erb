@@ -2,8 +2,6 @@
 
 <%= render 'form', commentable: @commentable, comment: @comment %>
 
-<br>
-
 <div>
   <% if @commentable.is_a?(Book) %>
     <%= link_to t('views.common.back_to_previous_page'), book_path(@commentable) %> |

@@ -1,6 +1,6 @@
 <h1><%= t('views.common.title_index', name: Report.model_name.human) %></h1>
 
-<div id="reports" class="index-item">
+<div class="index-item">
   <% @reports.each do |report| %>
     <div class="index-item">
       <%= render report %>
