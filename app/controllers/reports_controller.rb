@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
+before_action :set_current_user_report, only: [:edit, :update, :destroy]
+
   def index
     @reports = Report.order(:id).page(params[:page])
   end
@@ -14,7 +16,6 @@ class ReportsController < ApplicationController
   end
 
   def edit
-    @report = set_report
   end
 
   def create
@@ -28,8 +29,6 @@ class ReportsController < ApplicationController
   end
 
   def update
-    @report = set_report
-
     if @report.update(report_params)
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
@@ -38,7 +37,6 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report = set_report
     @report.destroy!
     redirect_to reports_path, status: :see_other, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
@@ -47,6 +45,10 @@ class ReportsController < ApplicationController
 
   def set_report
     @report = Report.find(params[:id])
+  end
+
+  def set_current_user_report
+    @report = current_user.reports.find(params[:id])
   end
 
   def report_params
