@@ -53,12 +53,12 @@ class CommentsController < ApplicationController
       @book = @commentable
       @comments = @book.comments.includes(:user)
       @comment = comment
-      render 'books/show', status: status
+      render 'books/show', status:
     when Report
       @report = @commentable
       @comments = @report.comments.includes(:user)
       @comment = comment
-      render 'reports/show', status: status
+      render 'reports/show', status:
     end
   end
 end
