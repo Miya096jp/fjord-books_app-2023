@@ -9,7 +9,9 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1 or /books/1.json
-  def show; end
+  def show
+    @comments = @book.comments.includes(:user)
+  end
 
   # GET /books/new
   def new
@@ -17,7 +19,9 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1/edit
-  def edit; end
+  def edit
+    @comments = @book.comments.includes(:user)
+  end
 
   # POST /books or /books.json
   def create

@@ -12,28 +12,12 @@
   <% end %>
 </div>
 
-<div class="index-item">
-  <h2><%= t('views.common.title_index', name: Comment.model_name.human) %></h2>
-  <% if @report.comments.present? %>
-    <% @report.comments.each do |comment| %>
-      <div class="index-item">
-        <strong><%= Comment.human_attribute_name(:title) %>:</strong>
-        <p><%= comment.title %></p>
-        <strong><%= Comment.human_attribute_name(:body) %>:</strong>
-        <p><%= comment.body %></p>
-        <p>Posted by <%= comment.user.name || comment.user.email %></p>
-        <% if comment.user == current_user %>
-          <nav class="page-nav">
-          <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_report_comment_path(@report, comment) %>
-          <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [@report, comment], method: :delete %>
-          </nav>
-        <% end %>
-      </div>
-    <% end %>
-  <% else %>
-    <p>コメントはまだありません</p>
-  <% end %>
-</div>
+<%= render 'comments/comments', commentable: @report, comments: @comments %>
 
 <h3><%= t('views.common.post', name: Comment.model_name.human) %></h3>
+
+<% if @comment %>
+  <%= render 'errors/error_messages', model: @comment %>
+<% end %>
+
 <%= render 'comments/form', commentable: @report, comment: Comment.new %>

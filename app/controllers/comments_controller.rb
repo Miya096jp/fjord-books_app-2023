@@ -2,7 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_commentable
-  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_current_user_comment, only: %i[edit update destroy]
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: @comment.model_name.human)
     else
-      render_commentable_show
+      render_commentable_show(@comment, status: :unprocessable_entity)
     end
   end
 
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: @comment.model_name.human)
+    redirect_to @commentable, status: :see_other, notice: t('controllers.common.notice_destroy', name: @comment.model_name.human)
   end
 
   private
@@ -43,18 +43,22 @@ class CommentsController < ApplicationController
     end
   end
 
-  def set_comment
-    @comment = @commentable.comments.find(params[:id])
+  def set_current_user_comment
+    @comment = current_user.comments.find_by(id: params[:id], commentable: @commentable)
   end
 
-  def render_commentable_show
+  def render_commentable_show(comment, status: :ok)
     case @commentable
     when Book
       @book = @commentable
-      render 'books/show'
+      @comments = @book.comments.includes(:user)
+      @comment = comment
+      render 'books/show', status: status
     when Report
       @report = @commentable
-      render 'reports/show'
+      @comments = @report.comments.includes(:user)
+      @comment = comment
+      render 'reports/show', status: status
     end
   end
 end

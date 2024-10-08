@@ -1,13 +1,6 @@
 <%= form_with(model: report) do |form| %>
-  <% if report.errors.any? %>
-    <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
 
-    <ul>
-      <% report.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<%= render 'errors/error_messages', model: report %>
 
   <div>
     <%= form.label :title, style: "display: block" %>

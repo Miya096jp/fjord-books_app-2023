@@ -9,6 +9,7 @@ before_action :set_current_user_report, only: [:edit, :update, :destroy]
 
   def show
     @report = set_report
+    @comments = @report.comments.includes(:user)
   end
 
   def new

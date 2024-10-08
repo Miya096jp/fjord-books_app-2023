@@ -1,22 +1,15 @@
 <%= form_with(model: [ commentable, comment ]) do |form| %>
-  <% if comment.errors.any? %>
-    <h2><%= pluralize(comment.errors.count, 'error') %> t(activerecord.errors.messages.header.prohibit_save)</h2>
-
-    <ul>
-      <% @comment.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
 
   <div>
     <%= form.label :title %>
-    <%= form.text_field :title, required: true %>
+    <%# <%= form.text_field :title, required: true %1> %>
+    <%= form.text_field :title %>
   </div>
 
   <div>
     <%= form.label :body %>
-    <%= form.text_area :body, required: true %>
+    <%# <%= form.text_area :body, required: true %1> %>
+    <%= form.text_area :body %>
   </div>
 
   <div>
