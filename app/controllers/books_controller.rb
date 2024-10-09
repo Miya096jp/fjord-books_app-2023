@@ -20,7 +20,6 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
-    @comments = @book.comments.includes(:user)
   end
 
   # POST /books or /books.json
