@@ -27,6 +27,16 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
+  def create_mentions
+    mention_relationships.destroy_all
+    report_url_pattern = %r{http://localhost:3000/reports/(\d+)}
+    mentions = content.scan(report_url_pattern).flatten
+
+    mentions.each do |mention_id|
+      Mention.create(mention_id: id, mentioned_id: mention_id)
+    end
+  end
+
   private
 
   def no_self_mention
