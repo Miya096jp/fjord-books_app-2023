@@ -33,7 +33,7 @@ class Report < ApplicationRecord
     mentions = content.scan(report_url_pattern).flatten
 
     mentions.each do |mention_id|
-      Mention.create(mention_id: id, mentioned_id: mention_id)
+      Mention.create!(mention_id: id, mentioned_id: mention_id)
     end
   end
 
