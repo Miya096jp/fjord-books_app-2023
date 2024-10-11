@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
   end
 
   def set_current_user_comment
-    @comment = current_user.comments.find_by(id: params[:id], commentable: @commentable)
+    @comment = current_user.comments.find(id: params[:id])
   end
 
   def render_commentable_show(comment, status: :ok)
