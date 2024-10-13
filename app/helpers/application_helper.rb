@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def text_url_to_hyperlink(content)
     sanitized_content = sanitize(content)
-    uri_reg = URI.regexp(%w[http https])
-    return sanitized_content.gsub(uri_reg){"<a href='#{$&}' target='_blank'>#{$&}</a>"}
+    uri_reg = URI::DEFAULT_PARSER.make_regexp(%w[http https])
+    sanitized_content.gsub(uri_reg) { "<a href='#{::Regexp.last_match(0)}' target='_blank'>#{::Regexp.last_match(0)}</a>" }
   end
 end
