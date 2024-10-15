@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
 
     if ActiveRecord::Base.transaction do
          @report.save!
-         @report.create_mentions
+         @report.update_mentions!
        end
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
@@ -34,7 +34,7 @@ class ReportsController < ApplicationController
   def update
     if ActiveRecord::Base.transaction do
          @report.update!(report_params)
-         @report.create_mentions
+         @report.update_mentions!
        end
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else

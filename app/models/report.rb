@@ -29,10 +29,10 @@ class Report < ApplicationRecord
 
   def extract_mentions
     report_url_pattern = %r{http://localhost:3000/reports/(\d+)}
-    mentions = content.scan(report_url_pattern).flatten
+    mentions = content.scan(report_url_pattern).uniq.flatten
   end
 
-  def create_mentions
+  def update_mentions!
     mention_relationships.destroy_all
     mentions = extract_mentions
     mentions.each do |mention_id|
