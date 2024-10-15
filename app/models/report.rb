@@ -17,6 +17,7 @@ class Report < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+  validate :no_duplicate_mentions
   validate :no_self_mention
 
   def editable?(target_user)
@@ -29,7 +30,7 @@ class Report < ApplicationRecord
 
   def extract_mentions
     REPORT_URL_PATTERN = %r{http://localhost:3000/reports/(\d+)}
-    mentions = content.scan(report_url_pattern).uniq.flatten
+    mentions = content.scan(report_url_pattern).flatten
   end
 
   def update_mentions!
@@ -41,6 +42,13 @@ class Report < ApplicationRecord
   end
 
   private
+
+  def no_duplicate_mentions
+    mentions = extract_mentions
+    return unless mentions.uniq.size != mentions.size
+
+    errors.add(:base, '同じ日報に言及することはできません')
+  end
 
   def no_self_mention
     mentions = extract_mentions
