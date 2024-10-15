@@ -28,7 +28,7 @@ class Report < ApplicationRecord
   end
 
   def extract_mentions
-    report_url_pattern = %r{http://localhost:3000/reports/(\d+)}
+    REPORT_URL_PATTERN = %r{http://localhost:3000/reports/(\d+)}
     mentions = content.scan(report_url_pattern).uniq.flatten
   end
 
@@ -43,9 +43,7 @@ class Report < ApplicationRecord
   private
 
   def no_self_mention
-    report_url_pattern = %r{http://localhost:3000/reports/(\d+)}
-    mentions = content.scan(report_url_pattern).flatten
-
+    mentions = extract_mentions
     return unless mentions.include?(id.to_s)
 
     errors.add(:base, 'この日報自身に言及することはできません')
