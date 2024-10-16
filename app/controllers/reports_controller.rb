@@ -27,21 +27,19 @@ class ReportsController < ApplicationController
         @report.update_mentions!
       end
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    rescue
+    rescue StandardError
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    begin
-      ActiveRecord::Base.transaction do
-        @report.update!(report_params)
-        @report.update_mentions!
-      end
-      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
-    rescue
-      render :edit, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      @report.update!(report_params)
+      @report.update_mentions!
     end
+    redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+  rescue StandardError
+    render :edit, status: :unprocessable_entity
   end
 
   def destroy
