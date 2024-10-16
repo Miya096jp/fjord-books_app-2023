@@ -20,6 +20,8 @@ class Report < ApplicationRecord
   validate :no_duplicate_mentions
   validate :no_self_mention
 
+  REPORT_URL_PATTERN = %r{http://localhost:3000/reports/(\d+)}
+
   def editable?(target_user)
     user == target_user
   end
@@ -29,8 +31,7 @@ class Report < ApplicationRecord
   end
 
   def extract_mentions
-    REPORT_URL_PATTERN = %r{http://localhost:3000/reports/(\d+)}
-    mentions = content.scan(report_url_pattern).flatten
+    content.scan(REPORT_URL_PATTERN).flatten
   end
 
   def update_mentions!
