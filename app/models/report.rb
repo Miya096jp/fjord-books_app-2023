@@ -17,7 +17,6 @@ class Report < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
-  validate :no_duplicate_mentions
   validate :no_self_mention
 
   REPORT_URL_PATTERN = %r{http://localhost:3000/reports/(\d+)}
@@ -31,7 +30,7 @@ class Report < ApplicationRecord
   end
 
   def extract_mentions
-    content.scan(REPORT_URL_PATTERN).flatten
+    content.scan(REPORT_URL_PATTERN).flatten.uniq
   end
 
   def update_mentions!
@@ -43,13 +42,6 @@ class Report < ApplicationRecord
   end
 
   private
-
-  def no_duplicate_mentions
-    mentions = extract_mentions
-    return unless mentions.uniq.size != mentions.size
-
-    errors.add(:base, '同じ日報に言及することはできません')
-  end
 
   def no_self_mention
     mentions = extract_mentions
