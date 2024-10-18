@@ -45,7 +45,7 @@ class Report < ApplicationRecord
 
   def no_self_mention
     mentions = extract_mentions
-    return unless mentions.include?(id.to_s)
+    return if mentions.exclude?(id.to_s)
 
     errors.add(:base, 'この日報自身に言及することはできません')
   end
