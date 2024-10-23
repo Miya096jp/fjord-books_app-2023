@@ -8,7 +8,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @report = Report.find(params[:id])
+    @report = Report.find_by(id: params[:id])
+    render plain: '404 Not Found', status: :not_found if @report.nil?
   end
 
   # GET /reports/new

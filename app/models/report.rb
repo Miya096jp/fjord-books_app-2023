@@ -37,7 +37,7 @@ class Report < ApplicationRecord
     mention_relationships.destroy_all
     mentions = extract_mentions
     mentions.each do |mention_id|
-      Mention.create!(mention_id: id, mentioned_id: mention_id)
+      Mention.create!(mention_id: id, mentioned_id: mention_id) if Report.exists?(id: mention_id)
     end
   end
 
