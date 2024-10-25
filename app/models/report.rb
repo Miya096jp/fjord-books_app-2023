@@ -27,6 +27,7 @@ class Report < ApplicationRecord
 
   def created_on
     created_at.to_date
+    # created_at.title
   end
 
   def extract_mentions
@@ -36,8 +37,9 @@ class Report < ApplicationRecord
   def update_mentions!
     mention_relationships.destroy_all
     mentions = extract_mentions
-    mentions.each do |mention_id|
-      Mention.create!(mention_id: id, mentioned_id: mention_id) if Report.exists?(id: mention_id)
+    existing_report_ids = Report.where(id: mentions).pluck(:id)
+    existing_report_ids.each do |existing_report_id|
+      Mention.create!(mention_id: id, mentioned_id: existing_report_id)
     end
   end
 

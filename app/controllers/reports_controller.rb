@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find_by(id: params[:id])
-    render plain: '404 Not Found', status: :not_found if @report.nil?
   end
 
   # GET /reports/new
