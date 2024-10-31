@@ -1,0 +1,16 @@
+<%= form_with(model: [ commentable, comment ]) do |form| %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,3 +10,13 @@
 
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
+
+<%= render 'comments/comments', commentable: @book, comments: @comments %>
+
+<h3><%= t('views.common.post', name: Comment.model_name.human) %></h3>
+
+<% if @comment %>
+  <%= render 'errors/error_messages', model: @comment %>
+<% end %>
+
+<%= render 'comments/form', commentable: @book, comment: Comment.new %>
