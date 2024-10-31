@@ -4,8 +4,8 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   setup do
-    @anna = users(:anna)
-    @report = reports(:first_report)
+    @anna = FactoryBot.create(:anna)
+    @report = FactoryBot.create(:report, user: @anna)
   end
 
   test '#editable? returns true for the report owner' do
@@ -13,11 +13,11 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '#editable? returns false for a different user' do
-    other_user = users(:bob)
+    other_user = FactoryBot.create(:bob)
     assert_not @report.editable?(other_user)
   end
 
-  test '#created_on retuns true when expected date and actual date are equal' do
+  test '#created_on returns true when expected date and actual date are equal' do
     assert_equal Date.parse('Sun, 20 Oct 2024'), @report.created_on
   end
 end
