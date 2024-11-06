@@ -20,4 +20,8 @@ class ReportTest < ActiveSupport::TestCase
   test '#created_on returns true when expected date and actual date are equal' do
     assert_equal Date.parse('Sun, 20 Oct 2024'), @report.created_on
   end
+
+  test '#save_mentions returns true when report is saved' do
+    assert @report.save
+  end
 end

@@ -16,27 +16,30 @@ class ReportsTest < ApplicationSystemTestCase
   test 'should create report' do
     visit reports_url
     click_on '日報の新規作成'
-
     fill_in 'タイトル', with: 'テスト'
     fill_in '内容', with: 'テストです'
     click_on '登録する'
-
     assert_text '日報が作成されました。'
+    assert_text 'テスト'
+    assert_text 'テストです'
   end
 
   test 'should update Report' do
     visit report_url(@report)
     click_link 'この日報を編集'
-
     fill_in 'タイトル', with: '更新'
     fill_in '内容', with: '更新しました'
     click_on '更新する'
     assert_text '日報が更新されました。'
+    assert_text '更新'
+    assert_text '更新しました'
   end
 
   test 'should destroy Report' do
     visit report_url(@report)
     click_on 'この日報を削除'
     assert_text '日報が削除されました。'
+    assert_no_text '更新'
+    assert_no_text '更新しました'
   end
 end
