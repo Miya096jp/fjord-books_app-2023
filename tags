@@ -1,0 +1,118 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddAuthorToBooks	db/migrate/20230102000101_add_author_to_books.rb	/^class AddAuthorToBooks < ActiveRecord::Migration[7.0]$/;"	c
+AddNameAndPostalCodeAndAddressAndSelfIntroductionToUsers	db/migrate/20230102023317_add_name_and_postal_code_and_address_and_self_introduction_to_users.rb	/^class AddNameAndPostalCodeAndAddressAndSelfIntroductionToUsers < ActiveRecord::Migration[7.0]$/;"	c
+AddPictureToBooks	db/migrate/20230102000542_add_picture_to_books.rb	/^class AddPictureToBooks < ActiveRecord::Migration[7.0]$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:BooksApp
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	test/channels/application_cable/connection_test.rb	/^class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase$/;"	c
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+ApplicationSystemTestCase	test/application_system_test_case.rb	/^class ApplicationSystemTestCase < ActionDispatch::SystemTestCase$/;"	c
+Book	app/models/book.rb	/^class Book < ApplicationRecord$/;"	c
+BookTest	test/models/book_test.rb	/^class BookTest < ActiveSupport::TestCase$/;"	c
+Books	app/controllers/books/comments_controller.rb	/^class Books::CommentsController < ApplicationController$/;"	c
+BooksApp	config/application.rb	/^module BooksApp$/;"	m
+BooksController	app/controllers/books_controller.rb	/^class BooksController < ApplicationController$/;"	c
+BooksControllerTest	test/controllers/books_controller_test.rb	/^class BooksControllerTest < ActionDispatch::IntegrationTest$/;"	c
+BooksHelper	app/helpers/books_helper.rb	/^module BooksHelper$/;"	m
+BooksTest	test/system/books_test.rb	/^class BooksTest < ApplicationSystemTestCase$/;"	c
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Comment	app/models/comment.rb	/^class Comment < ApplicationRecord$/;"	c
+CommentTest	test/models/comment_test.rb	/^class CommentTest < ActiveSupport::TestCase$/;"	c
+CommentsController	app/controllers/comments_controller.rb	/^class CommentsController < ApplicationController$/;"	c
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+CreateActiveStorageTables	db/migrate/20230102070626_create_active_storage_tables.active_storage.rb	/^class CreateActiveStorageTables < ActiveRecord::Migration[5.2]$/;"	c
+CreateBooks	db/migrate/20230101235329_create_books.rb	/^class CreateBooks < ActiveRecord::Migration[7.0]$/;"	c
+CreateComments	db/migrate/20230102082433_create_comments.rb	/^class CreateComments < ActiveRecord::Migration[7.0]$/;"	c
+CreateMentions	db/migrate/20241002052203_create_mentions.rb	/^class CreateMentions < ActiveRecord::Migration[7.0]$/;"	c
+CreateReports	db/migrate/20230102071901_create_reports.rb	/^class CreateReports < ActiveRecord::Migration[7.0]$/;"	c
+DeviseCreateUsers	db/migrate/20230102023210_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[7.0]$/;"	c
+Mention	app/models/mention.rb	/^class Mention < ApplicationRecord$/;"	c
+MentionTest	test/models/mention_test.rb	/^class MentionTest < ActiveSupport::TestCase$/;"	c
+PictureUploader	app/uploaders/picture_uploader.rb	/^class PictureUploader < CarrierWave::Uploader::Base$/;"	c
+Report	app/models/report.rb	/^class Report < ApplicationRecord$/;"	c
+ReportTest	test/models/report_test.rb	/^class ReportTest < ActiveSupport::TestCase$/;"	c
+Reports	app/controllers/reports/comments_controller.rb	/^class Reports::CommentsController < ApplicationController$/;"	c
+ReportsController	app/controllers/reports_controller.rb	/^class ReportsController < ApplicationController$/;"	c
+ReportsControllerTest	test/controllers/reports_controller_test.rb	/^class ReportsControllerTest < ActionDispatch::IntegrationTest$/;"	c
+ReportsTest	test/system/reports_test.rb	/^class ReportsTest < ApplicationSystemTestCase$/;"	c
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersControllerTest	test/controllers/users_controller_test.rb	/^class UsersControllerTest < ActionDispatch::IntegrationTest$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+activate_bundler	bin/bundle	/^  def activate_bundler$/;"	f
+activation_error_handling	bin/bundle	/^  def activation_error_handling$/;"	f
+add_comments_to	db/seeds.rb	/^def add_comments_to(commentable, contents)$/;"	f
+after_sign_in_path_for	app/controllers/application_controller.rb	/^  def after_sign_in_path_for(_resource_or_scope)$/;"	f	class:ApplicationController
+after_sign_out_path_for	app/controllers/application_controller.rb	/^  def after_sign_out_path_for(_resource_or_scope)$/;"	f	class:ApplicationController
+book_params	app/controllers/books_controller.rb	/^  def book_params$/;"	f	class:BooksController
+bundler_requirement	bin/bundle	/^  def bundler_requirement$/;"	f
+bundler_requirement_for	bin/bundle	/^  def bundler_requirement_for(version)$/;"	f
+change	db/migrate/20230101235329_create_books.rb	/^  def change$/;"	f	class:CreateBooks
+change	db/migrate/20230102000101_add_author_to_books.rb	/^  def change$/;"	f	class:AddAuthorToBooks
+change	db/migrate/20230102000542_add_picture_to_books.rb	/^  def change$/;"	f	class:AddPictureToBooks
+change	db/migrate/20230102023210_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20230102023317_add_name_and_postal_code_and_address_and_self_introduction_to_users.rb	/^  def change$/;"	f	class:AddNameAndPostalCodeAndAddressAndSelfIntroductionToUsers
+change	db/migrate/20230102070626_create_active_storage_tables.active_storage.rb	/^  def change$/;"	f	class:CreateActiveStorageTables
+change	db/migrate/20230102071901_create_reports.rb	/^  def change$/;"	f	class:CreateReports
+change	db/migrate/20230102082433_create_comments.rb	/^  def change$/;"	f	class:CreateComments
+change	db/migrate/20241002052203_create_mentions.rb	/^  def change$/;"	f	class:CreateMentions
+cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
+comment_params	app/controllers/books/comments_controller.rb	/^  def comment_params$/;"	f	class:Books
+comment_params	app/controllers/reports/comments_controller.rb	/^  def comment_params$/;"	f	class:Reports
+configure_permitted_parameters	app/controllers/application_controller.rb	/^  def configure_permitted_parameters$/;"	f	class:ApplicationController
+create	app/controllers/books/comments_controller.rb	/^  def create$/;"	f	class:Books
+create	app/controllers/books_controller.rb	/^  def create$/;"	f	class:BooksController
+create	app/controllers/reports/comments_controller.rb	/^  def create$/;"	f	class:Reports
+create	app/controllers/reports_controller.rb	/^  def create$/;"	f	class:ReportsController
+created_on	app/models/report.rb	/^  def created_on$/;"	f	class:Report
+current_user_name	app/helpers/users_helper.rb	/^  def current_user_name(user)$/;"	f	class:UsersHelper
+destroy	app/controllers/books_controller.rb	/^  def destroy$/;"	f	class:BooksController
+destroy	app/controllers/comments_controller.rb	/^  def destroy$/;"	f	class:CommentsController
+destroy	app/controllers/reports_controller.rb	/^  def destroy$/;"	f	class:ReportsController
+edit	app/controllers/books_controller.rb	/^  def edit; end$/;"	f	class:BooksController
+edit	app/controllers/reports_controller.rb	/^  def edit; end$/;"	f	class:ReportsController
+editable?	app/models/report.rb	/^  def editable?(target_user)$/;"	f	class:Report
+env_var_version	bin/bundle	/^  def env_var_version$/;"	f
+extract_mentions	app/models/report.rb	/^  def extract_mentions$/;"	f	class:Report
+format_content	app/helpers/application_helper.rb	/^  def format_content(content)$/;"	f	class:ApplicationHelper
+gemfile	bin/bundle	/^  def gemfile$/;"	f
+i18n_error_count	app/helpers/application_helper.rb	/^  def i18n_error_count(count)$/;"	f	class:ApplicationHelper
+i18n_pluralize	app/helpers/application_helper.rb	/^  def i18n_pluralize(word)$/;"	f	class:ApplicationHelper
+index	app/controllers/books_controller.rb	/^  def index$/;"	f	class:BooksController
+index	app/controllers/reports_controller.rb	/^  def index$/;"	f	class:ReportsController
+index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
+load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
+lockfile	bin/bundle	/^  def lockfile$/;"	f
+lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
+name_or_email	app/models/user.rb	/^  def name_or_email$/;"	f	class:User
+new	app/controllers/books_controller.rb	/^  def new$/;"	f	class:BooksController
+new	app/controllers/reports_controller.rb	/^  def new$/;"	f	class:ReportsController
+no_self_mention	app/models/report.rb	/^  def no_self_mention$/;"	f	class:Report
+picture_file	db/seeds.rb	/^def picture_file(name)$/;"	f
+primary_and_foreign_key_types	db/migrate/20230102070626_create_active_storage_tables.active_storage.rb	/^    def primary_and_foreign_key_types$/;"	f	class:CreateActiveStorageTables
+report_params	app/controllers/reports_controller.rb	/^  def report_params$/;"	f	class:ReportsController
+set_book	app/controllers/books_controller.rb	/^  def set_book$/;"	f	class:BooksController
+set_report	app/controllers/reports_controller.rb	/^  def set_report$/;"	f	class:ReportsController
+show	app/controllers/books_controller.rb	/^  def show; end$/;"	f	class:BooksController
+show	app/controllers/reports_controller.rb	/^  def show$/;"	f	class:ReportsController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+signed_in_root_path	app/controllers/application_controller.rb	/^  def signed_in_root_path(_resource_or_scope)$/;"	f	class:ApplicationController
+store_dir	app/uploaders/picture_uploader.rb	/^  def store_dir$/;"	f	class:PictureUploader
+system!	bin/setup	/^def system!(*args)$/;"	f
+text_url_to_hyperlink	app/helpers/application_helper.rb	/^  def text_url_to_hyperlink(content)$/;"	f	class:ApplicationHelper
+update	app/controllers/books_controller.rb	/^  def update$/;"	f	class:BooksController
+update	app/controllers/reports_controller.rb	/^  def update$/;"	f	class:ReportsController
+update_mentions!	app/models/report.rb	/^  def update_mentions!$/;"	f	class:Report
